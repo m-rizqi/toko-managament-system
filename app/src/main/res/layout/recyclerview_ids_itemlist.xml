@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/white"
+    android:layout_marginTop="15dp">
+
+    <LinearLayout
+        android:id="@+id/ids_linearlayout_1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:orientation="horizontal">
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/ids_inputlayout_1"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox"
+            android:layout_gravity="bottom"
+            >
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/ids_edittext_id"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/white"
+                android:text="12345678"
+                android:textColor="@color/black"
+                android:fontFamily="@font/poppins_w500_medium"
+                android:textSize="14sp"
+                android:paddingTop="10dp"
+                android:paddingBottom="5dp"/>
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/ids_inputlayout_2"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintLeft_toRightOf="@id/ids_inputlayout_1"
+            style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox.ExposedDropdownMenu"
+            android:layout_marginLeft="15dp"
+
+            >
+
+            <AutoCompleteTextView
+                android:id="@+id/ids_autocompletetextview_priority"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/white"
+                android:textColor="@color/black"
+                android:fontFamily="@font/poppins_w500_medium"
+                android:textSize="14sp"
+                android:paddingTop="10dp"
+                android:paddingBottom="5dp"/>
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+    </LinearLayout>
+
+    <RelativeLayout
+        android:id="@+id/ids_relativelayout_2"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/ids_linearlayout_1"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginTop="7dp"
+        >
+
+        <ImageButton
+            android:id="@+id/ids_imagebutton_tambahid"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_baseline_add_24"
+            android:background="@android:color/transparent"
+            android:layout_alignParentEnd="true"
+            />
+
+        <TextView
+            android:id="@+id/ids_textview_tambahid"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toLeftOf="@id/ids_imagebutton_tambahid"
+            android:text="tambah id"
+            android:layout_centerVertical="true"
+            android:textColor="@color/blue_dark"
+            android:fontFamily="@font/poppins_w400_regular"
+            android:textSize="10sp"
+            android:padding="0dp"
+            />
+
+        <ImageButton
+            android:id="@+id/ids_imagebutton_kurangid"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_minus"
+            android:background="@android:color/transparent"
+            android:layout_toLeftOf="@id/ids_imagebutton_tambahid"
+            android:layout_centerVertical="true"
+            android:visibility="gone"
+            />
+
+    </RelativeLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
