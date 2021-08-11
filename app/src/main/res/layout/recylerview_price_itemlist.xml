@@ -1,0 +1,398 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="@color/white">
+
+    <ImageButton
+        android:id="@+id/price_imagebutton_addboxabove"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:src="@drawable/ic_baseline_add_circle_24"
+        android:background="@android:color/transparent"
+        android:layout_marginBottom="11dp"
+        />
+
+    <LinearLayout
+        android:id="@+id/price_linearlayout_1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/price_imagebutton_addboxabove"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:orientation="horizontal"
+        android:paddingVertical="12dp"
+        android:paddingHorizontal="21dp"
+        android:layout_marginTop="6dp"
+        android:background="#807DB3C6">
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/price_inputlayout_1"
+            android:layout_width="50dp"
+            android:layout_height="wrap_content"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            app:boxStrokeColor="@color/blue_dark"
+            app:boxStrokeWidth="1dp"
+            app:boxCornerRadiusTopStart="3dp"
+            app:boxCornerRadiusTopEnd="3dp"
+            app:boxCornerRadiusBottomEnd="3dp"
+            app:boxCornerRadiusBottomStart="3dp"
+            app:boxBackgroundColor="@color/white"
+            >
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/price_edittext_1"
+                android:layout_width="match_parent"
+                android:layout_height="24dp"
+                android:fontFamily="@font/poppins_w400_regular"
+                android:inputType="number"
+                android:textColor="@color/black"
+                android:textSize="10sp"
+                />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <TextView
+            android:id="@+id/price_textview_1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="7dp"
+            android:gravity="center_vertical"
+            android:text="Bungkus = Pack"
+            android:fontFamily="@font/poppins_w400_regular"
+            android:textSize="10sp"
+            android:textColor="@color/black"
+            android:layout_gravity="center_vertical"
+            android:layout_marginTop="2dp"
+            />
+
+    </LinearLayout>
+
+    <View
+        android:id="@+id/price_view_1"
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        app:layout_constraintTop_toBottomOf="@id/price_linearlayout_1"
+        android:layout_marginTop="6dp"
+        android:background="#C4C4C4"/>
+
+    <ImageButton
+        android:id="@+id/price_imagebutton_deletebox"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/price_view_1"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_margin="3dp"
+        android:background="@android:color/transparent"
+        android:src="@drawable/ic_baseline_close_24"
+        />
+
+    <LinearLayout
+        android:id="@+id/price_linearlayout_2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/price_imagebutton_deletebox"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginLeft="14dp"
+        android:orientation="horizontal"
+        >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Pilih Satuan"
+            android:fontFamily="@font/poppins_w400_regular"
+            android:textSize="12sp"
+            android:textColor="@color/black"
+            android:gravity="center_vertical"
+            />
+
+        <View
+            android:layout_width="2dp"
+            android:layout_height="12dp"
+            android:background="#C4C4C4"
+            android:layout_marginLeft="5dp"
+            android:layout_gravity="center_vertical"
+            />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/price_apptextview_tambahsatuan"
+            android:layout_width="wrap_content"
+            android:layout_height="35dp"
+            android:layout_marginLeft="5dp"
+            style="?attr/materialButtonOutlinedStyle"
+            android:text="tambah baru"
+            android:textAllCaps="false"
+            android:fontFamily="@font/poppins_w400_regular"
+            android:textSize="10sp"
+            android:textColor="@color/blue_dark"
+            android:gravity="center_vertical"
+            app:strokeColor="@color/blue_dark"
+            app:strokeWidth="1dp"
+            app:cornerRadius="6dp"
+            android:paddingVertical="0dp"
+            />
+
+    </LinearLayout>
+
+    <HorizontalScrollView
+        android:id="@+id/price_horizontalscrollview_1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/price_linearlayout_2"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginTop="8dp"
+        android:layout_marginLeft="14dp">
+
+        <com.google.android.material.chip.ChipGroup
+            android:id="@+id/price_chipgroup_satuan"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:singleSelection="true"
+            app:singleLine="true"
+            app:chipSpacingHorizontal="8dp"
+            app:selectionRequired="true"
+            >
+
+            <com.google.android.material.chip.Chip
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                style="@style/Widget.MaterialComponents.Chip.Choice"
+                android:text="Bungkus"
+                android:textColor="@color/price_chip_text_selector"
+                android:fontFamily="@font/poppins_w400_regular"
+                android:textSize="10sp"
+                android:checked="true"
+                app:chipBackgroundColor="@color/price_chip_background_selector"
+                app:chipStrokeColor="@color/price_chip_stroke_selector"
+                app:chipStrokeWidth="1dp"
+                android:checkable="true"
+                android:clickable="true"
+                android:focusable="true"
+                />
+
+            <com.google.android.material.chip.Chip
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                style="@style/Widget.MaterialComponents.Chip.Choice"
+                android:text="Bungkus"
+                android:textColor="@color/price_chip_text_selector"
+                android:fontFamily="@font/poppins_w400_regular"
+                android:textSize="10sp"
+                app:chipBackgroundColor="@color/price_chip_background_selector"
+                app:chipStrokeColor="@color/price_chip_stroke_selector"
+                app:chipStrokeWidth="1dp"
+                android:checkable="true"
+                android:clickable="true"
+                android:focusable="true"
+                />
+
+        </com.google.android.material.chip.ChipGroup>
+
+    </HorizontalScrollView>
+
+    <LinearLayout
+        android:id="@+id/price_linearlayout_pedagang"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/price_horizontalscrollview_1"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginTop="8dp"
+        android:layout_marginLeft="14dp"
+        android:orientation="horizontal"
+        >
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/price_inputlayout_pedagangprice"
+            android:layout_width="175dp"
+            android:layout_height="wrap_content"
+            style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox"
+            android:hint="Pedagang"
+            android:textColorHint="#B3000000"
+            app:hintTextColor="#B3000000"
+            app:boxStrokeColor="@color/blue_light"
+            >
+
+            <EditText
+                android:id="@+id/price_edittext_pedagangprice"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:backgroundTint="@color/white"
+                android:lines="1"
+                android:fontFamily="@font/poppins_w500_medium"
+                android:textSize="13sp"
+                android:textColor="@color/black"
+                android:inputType="number"
+                android:paddingBottom="0dp"
+                />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.checkbox.MaterialCheckBox
+            android:id="@+id/price_checkbox_pedagangvisibility"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:button="@null"
+            android:checked="false"
+            android:layout_gravity="bottom"
+            android:layout_marginLeft="10dp"
+            android:background="@drawable/visibility_checkbox_background"
+            />
+
+        <ImageButton
+            android:id="@+id/price_imagebutton_pedagangaddnote"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:layout_marginLeft="10dp"
+            android:src="@drawable/ic_baseline_note_add_24"
+            android:background="@android:color/transparent"
+            />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/price_linearlayout_pedagangnote"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/price_linearlayout_pedagang"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginLeft="14dp"
+        android:orientation="vertical"
+        android:layout_marginTop="4dp"
+        >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Catatan :"
+            android:fontFamily="@font/poppins_w400_regular"
+            android:textSize="10sp"
+            android:textColor="@color/black"
+            />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/price_recylerview_pedagangnote"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:itemCount="1"
+            tools:listitem="@layout/recylerview_note_itemlist"
+            />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/price_linearlayout_konsumen"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/price_linearlayout_pedagangnote"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginTop="14dp"
+        android:layout_marginLeft="14dp"
+        android:orientation="horizontal"
+        >
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/price_inputlayout_konsumenprice"
+            android:layout_width="175dp"
+            android:layout_height="wrap_content"
+            style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox"
+            android:hint="Konsumen"
+            android:textColorHint="#B3000000"
+            app:hintTextColor="#B3000000"
+            app:boxStrokeColor="@color/blue_light"
+            >
+
+            <EditText
+                android:id="@+id/price_edittext_konsumenprice"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:backgroundTint="@color/white"
+                android:lines="1"
+                android:fontFamily="@font/poppins_w500_medium"
+                android:textSize="13sp"
+                android:textColor="@color/black"
+                android:inputType="number"
+                android:paddingBottom="0dp"
+                />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.checkbox.MaterialCheckBox
+            android:id="@+id/price_checkbox_konsumenvisibility"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:button="@null"
+            android:checked="false"
+            android:layout_gravity="bottom"
+            android:layout_marginLeft="10dp"
+            android:background="@drawable/visibility_checkbox_background"
+            />
+
+        <ImageButton
+            android:id="@+id/price_imagebutton_konsumenaddnote"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:layout_marginLeft="10dp"
+            android:src="@drawable/ic_baseline_note_add_24"
+            android:background="@android:color/transparent"
+            />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/price_linearlayout_konsumennote"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/price_linearlayout_konsumen"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginLeft="14dp"
+        android:orientation="vertical"
+        android:layout_marginTop="4dp"
+        >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Catatan :"
+            android:fontFamily="@font/poppins_w400_regular"
+            android:textSize="10sp"
+            android:textColor="@color/black"
+            />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/price_recylerview_konsumennote"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:itemCount="1"
+            tools:listitem="@layout/recylerview_note_itemlist"
+            />
+
+    </LinearLayout>
+
+    <View
+        android:id="@+id/price_view_2"
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        app:layout_constraintTop_toBottomOf="@id/price_linearlayout_konsumennote"
+        android:layout_marginTop="14dp"
+        android:background="#C4C4C4"/>
+
+    <ImageButton
+        android:id="@+id/price_imagebutton_addboxbelow"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/price_view_2"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:src="@drawable/ic_baseline_add_circle_24"
+        android:background="@android:color/transparent"
+        android:layout_marginTop="11dp"
+        />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

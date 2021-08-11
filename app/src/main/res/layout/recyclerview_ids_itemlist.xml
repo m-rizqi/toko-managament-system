@@ -20,12 +20,13 @@
             android:layout_height="wrap_content"
             style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox"
             android:layout_gravity="bottom"
+            app:boxStrokeColor="@color/black"
             >
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/ids_edittext_id"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
                 android:background="@color/white"
                 android:text="12345678"
                 android:textColor="@color/black"
@@ -44,13 +45,14 @@
             app:layout_constraintLeft_toRightOf="@id/ids_inputlayout_1"
             style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox.ExposedDropdownMenu"
             android:layout_marginLeft="15dp"
+            app:boxStrokeColor="@color/black"
 
             >
 
             <AutoCompleteTextView
                 android:id="@+id/ids_autocompletetextview_priority"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
                 android:background="@color/white"
                 android:textColor="@color/black"
                 android:fontFamily="@font/poppins_w500_medium"
@@ -77,8 +79,7 @@
             android:layout_height="wrap_content"
             android:src="@drawable/ic_baseline_add_24"
             android:background="@android:color/transparent"
-            android:layout_alignParentEnd="true"
-            />
+            android:layout_alignParentRight="true" />
 
         <TextView
             android:id="@+id/ids_textview_tambahid"

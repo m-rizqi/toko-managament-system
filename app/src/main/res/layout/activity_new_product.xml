@@ -80,7 +80,7 @@
                     android:text="angka unik barang"
                     android:fontFamily="@font/poppins_w400_regular"
                     android:textSize="10sp"
-                    android:textColor="@color/blue_light"
+                    android:textColor="#80000000"
                     />
 
             </LinearLayout>
@@ -105,20 +105,20 @@
                 style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox"
                 android:hint="Nama Barang"
                 android:textColorHint="#B3000000"
-                app:hintTextColor="@color/blue_light"
+                app:hintTextColor="@color/blue_dark"
                 app:boxStrokeColor="@color/blue_light"
                 >
 
                 <EditText
                     android:id="@+id/newproduct_edittext_namabarang"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
+                    android:layout_height="wrap_content"
                     android:backgroundTint="@color/white"
                     android:lines="1"
                     android:fontFamily="@font/poppins_w500_medium"
                     android:textSize="14sp"
                     android:textColor="@color/black"
-                    android:paddingTop="15dp"
+                    android:paddingBottom="0dp"
                     />
 
             </com.google.android.material.textfield.TextInputLayout>
@@ -144,7 +144,8 @@
                 app:layout_constraintTop_toBottomOf="@id/newproduct_textview_1"
                 android:layout_marginHorizontal="15dp"
                 android:layout_marginTop="24dp"
-                tools:itemCount="1"/>
+                tools:itemCount="1"
+                tools:listitem="@layout/recylerview_price_itemlist"/>
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
