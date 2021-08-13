@@ -33,7 +33,9 @@
                 android:fontFamily="@font/poppins_w500_medium"
                 android:textSize="14sp"
                 android:paddingTop="10dp"
-                android:paddingBottom="5dp"/>
+                android:paddingBottom="5dp"
+                android:inputType="number"
+                />
 
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -72,6 +74,7 @@
         app:layout_constraintTop_toBottomOf="@id/ids_linearlayout_1"
         app:layout_constraintLeft_toLeftOf="parent"
         android:layout_marginTop="7dp"
+        android:visibility="gone"
         >
 
         <ImageButton
@@ -80,7 +83,8 @@
             android:layout_height="wrap_content"
             android:src="@drawable/ic_baseline_add_24"
             android:background="@android:color/transparent"
-            android:layout_alignParentRight="true" />
+            android:layout_alignParentRight="true"
+            />
 
         <TextView
             android:id="@+id/ids_textview_tambahid"
@@ -93,6 +97,7 @@
             android:fontFamily="@font/poppins_w400_regular"
             android:textSize="10sp"
             android:padding="0dp"
+            android:visibility="gone"
             />
 
         <ImageButton
@@ -103,7 +108,7 @@
             android:background="@android:color/transparent"
             android:layout_toLeftOf="@id/ids_imagebutton_tambahid"
             android:layout_centerVertical="true"
-            android:visibility="visible"
+            android:visibility="gone"
             />
 
     </RelativeLayout>

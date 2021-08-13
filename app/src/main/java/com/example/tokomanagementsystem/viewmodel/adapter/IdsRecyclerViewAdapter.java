@@ -17,15 +17,14 @@ import com.google.android.material.textfield.TextInputEditText;
 import com.google.android.material.textfield.TextInputLayout;
 
 import java.util.ArrayList;
-import java.util.zip.Inflater;
 
-public class IdsRecylerViewAdapter extends RecyclerView.Adapter<IdsRecylerViewAdapter.IdsViewHoder> {
+public class IdsRecyclerViewAdapter extends RecyclerView.Adapter<IdsRecyclerViewAdapter.IdsViewHoder> {
 
     //vars
     private ArrayList<Id> idsProduct = new ArrayList<>();
     private ArrayList<IdsViewHoder> idsViewHoders = new ArrayList<>();
 
-    public IdsRecylerViewAdapter(Id id) {
+    public IdsRecyclerViewAdapter(Id id) {
         idsProduct.add(id);
     }
 
@@ -37,9 +36,31 @@ public class IdsRecylerViewAdapter extends RecyclerView.Adapter<IdsRecylerViewAd
     }
 
     @Override
-    public void onBindViewHolder(@NonNull IdsRecylerViewAdapter.IdsViewHoder holder, int position) {
+    public void onBindViewHolder(@NonNull IdsRecyclerViewAdapter.IdsViewHoder holder, int position) {
         Id id = idsProduct.get(position);
         holder.idEditText.setText(String.valueOf(id.getId()));
+        holder.idInputLayout.setEnabled(false);
+        if (idsProduct.size() == 1){
+            holder.setIdSizeOne();
+        }else {
+            if (position == idsProduct.size() - 1){
+                holder.setIdLast();
+            }else{
+                holder.setIdNotLast();
+            }
+        }
+        holder.addIdButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                addId(new Id(999999L, "", 3L));
+            }
+        });
+        holder.deleteIdButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                deleteId();
+            }
+        });
     }
 
     @Override
@@ -47,9 +68,20 @@ public class IdsRecylerViewAdapter extends RecyclerView.Adapter<IdsRecylerViewAd
         return idsProduct.size();
     }
 
+    public void addId(Id id){
+        this.idsProduct.add(id);
+        notifyDataSetChanged();
+    }
+
+    public void deleteId(){
+        this.idsProduct.remove(this.idsProduct.size() -1);
+        notifyDataSetChanged();
+    }
+
     class IdsViewHoder extends RecyclerView.ViewHolder {
 
         //widgets
+        View view;
         TextInputLayout idInputLayout, priorityInputLayout;
         TextInputEditText idEditText;
         AutoCompleteTextView priorityAutoComplete;
@@ -61,6 +93,7 @@ public class IdsRecylerViewAdapter extends RecyclerView.Adapter<IdsRecylerViewAd
             super(itemView);
 
             //extract widgets
+            view = itemView;
             idInputLayout = itemView.findViewById(R.id.ids_inputlayout_1);
             idEditText = itemView.findViewById(R.id.ids_edittext_id);
             priorityInputLayout = itemView.findViewById(R.id.ids_inputlayout_2);
@@ -73,6 +106,25 @@ public class IdsRecylerViewAdapter extends RecyclerView.Adapter<IdsRecylerViewAd
             //widgets configuration
 
         }
+
+        public void setIdSizeOne(){
+            addDeleteIdRelativeLayout.setVisibility(View.VISIBLE);
+            tambahIdTextView.setVisibility(View.VISIBLE);
+            deleteIdButton.setVisibility(View.GONE);
+            addIdButton.setVisibility(View.VISIBLE);
+        }
+
+        public void setIdNotLast(){
+            addDeleteIdRelativeLayout.setVisibility(View.GONE);
+        }
+
+        public void setIdLast(){
+            addDeleteIdRelativeLayout.setVisibility(View.VISIBLE);
+            tambahIdTextView.setVisibility(View.GONE);
+            deleteIdButton.setVisibility(View.VISIBLE);
+            addIdButton.setVisibility(View.VISIBLE);
+        }
+
     }
 
 }

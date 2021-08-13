@@ -12,7 +12,7 @@ import android.widget.ImageView;
 
 import com.example.tokomanagementsystem.R;
 import com.example.tokomanagementsystem.model.Id;
-import com.example.tokomanagementsystem.viewmodel.adapter.IdsRecylerViewAdapter;
+import com.example.tokomanagementsystem.viewmodel.adapter.IdsRecyclerViewAdapter;
 import com.google.android.material.button.MaterialButton;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.android.material.textfield.TextInputLayout;
@@ -29,7 +29,7 @@ public class NewProductActivity extends AppCompatActivity {
     MaterialButton simpanButton;
 
     //vars
-    IdsRecylerViewAdapter idsAdapter;
+    IdsRecyclerViewAdapter idsAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -61,7 +61,7 @@ public class NewProductActivity extends AppCompatActivity {
             }
         });
 //        productImage
-        idsAdapter = new IdsRecylerViewAdapter(new Id(123456789L, "", 1L));
+        idsAdapter = new IdsRecyclerViewAdapter(new Id(123456789L, "", 1L));
         idsRecyclerview.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
         idsRecyclerview.setAdapter(idsAdapter);
 
