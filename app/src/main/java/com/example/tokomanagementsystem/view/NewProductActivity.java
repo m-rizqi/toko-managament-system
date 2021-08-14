@@ -12,7 +12,9 @@ import android.widget.ImageView;
 
 import com.example.tokomanagementsystem.R;
 import com.example.tokomanagementsystem.model.Id;
+import com.example.tokomanagementsystem.model.Price;
 import com.example.tokomanagementsystem.viewmodel.adapter.IdsRecyclerViewAdapter;
+import com.example.tokomanagementsystem.viewmodel.adapter.PriceRecyclerViewAdapter;
 import com.google.android.material.button.MaterialButton;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.android.material.textfield.TextInputLayout;
@@ -30,6 +32,7 @@ public class NewProductActivity extends AppCompatActivity {
 
     //vars
     IdsRecyclerViewAdapter idsAdapter;
+    PriceRecyclerViewAdapter pricesAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -64,6 +67,10 @@ public class NewProductActivity extends AppCompatActivity {
         idsAdapter = new IdsRecyclerViewAdapter(new Id(123456789L, "", 1L));
         idsRecyclerview.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
         idsRecyclerview.setAdapter(idsAdapter);
+
+        pricesAdapter = new PriceRecyclerViewAdapter(new Price(12L, "Bungkus"));
+        pricesRecylerview.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
+        pricesRecylerview.setAdapter(pricesAdapter);
 
     }
 }
