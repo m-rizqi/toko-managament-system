@@ -3,6 +3,7 @@ package com.example.tokomanagementsystem.viewmodel.adapter;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.ImageButton;
 import android.widget.RelativeLayout;
@@ -22,10 +23,12 @@ public class IdsRecyclerViewAdapter extends RecyclerView.Adapter<IdsRecyclerView
 
     //vars
     private ArrayList<Id> idsProduct = new ArrayList<>();
+    private ArrayList<String> roleAutoCompleteList;
     private ArrayList<IdsViewHoder> idsViewHoders = new ArrayList<>();
 
-    public IdsRecyclerViewAdapter(Id id) {
+    public IdsRecyclerViewAdapter(Id id, ArrayList<String> roleAutoCompleteList) {
         idsProduct.add(id);
+        this.roleAutoCompleteList = roleAutoCompleteList;
     }
 
     @Override
@@ -52,7 +55,7 @@ public class IdsRecyclerViewAdapter extends RecyclerView.Adapter<IdsRecyclerView
         holder.addIdButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                addId(new Id(999999L, "", 3L));
+                addId(new Id(999999L, "Default", 3L));
             }
         });
         holder.deleteIdButton.setOnClickListener(new View.OnClickListener() {
@@ -89,6 +92,9 @@ public class IdsRecyclerViewAdapter extends RecyclerView.Adapter<IdsRecyclerView
         ImageButton addIdButton, deleteIdButton;
         TextView tambahIdTextView;
 
+        //vars
+        ArrayAdapter<String> roleAutoCompeteAdapter;
+
         public IdsViewHoder(@NonNull View itemView) {
             super(itemView);
 
@@ -102,6 +108,11 @@ public class IdsRecyclerViewAdapter extends RecyclerView.Adapter<IdsRecyclerView
             addIdButton = itemView.findViewById(R.id.ids_imagebutton_tambahid);
             deleteIdButton = itemView.findViewById(R.id.ids_imagebutton_kurangid);
             tambahIdTextView = itemView.findViewById(R.id.ids_textview_tambahid);
+
+            //vars config
+            roleAutoCompeteAdapter = new ArrayAdapter<>(itemView.getContext(),R.layout.drop_down_list_item,roleAutoCompleteList);
+            priorityAutoComplete.setAdapter(roleAutoCompeteAdapter);
+            priorityAutoComplete.setDropDownBackgroundResource(R.color.white);
 
             //widgets configuration
 

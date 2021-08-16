@@ -14,6 +14,7 @@ import com.example.tokomanagementsystem.R;
 import com.example.tokomanagementsystem.model.Id;
 import com.example.tokomanagementsystem.model.Price;
 import com.example.tokomanagementsystem.viewmodel.adapter.IdsRecyclerViewAdapter;
+import com.example.tokomanagementsystem.viewmodel.adapter.NewProductViewModel;
 import com.example.tokomanagementsystem.viewmodel.adapter.PriceRecyclerViewAdapter;
 import com.google.android.material.button.MaterialButton;
 import com.google.android.material.textfield.TextInputEditText;
@@ -33,6 +34,7 @@ public class NewProductActivity extends AppCompatActivity {
     //vars
     IdsRecyclerViewAdapter idsAdapter;
     PriceRecyclerViewAdapter pricesAdapter;
+    NewProductViewModel newProductViewModel;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,6 +52,9 @@ public class NewProductActivity extends AppCompatActivity {
         notifrememberCheckBox = findViewById(R.id.newproduct_checkbox_notification);
         simpanButton = findViewById(R.id.newproduct_materialbutton_save);
 
+        //vars
+        newProductViewModel = new NewProductViewModel(1234567890L);
+
         //widget configuration
         backButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -64,11 +69,11 @@ public class NewProductActivity extends AppCompatActivity {
             }
         });
 //        productImage
-        idsAdapter = new IdsRecyclerViewAdapter(new Id(123456789L, "", 1L));
+        idsAdapter = new IdsRecyclerViewAdapter(newProductViewModel.getProduct().getId().get(0), newProductViewModel.getRoleAutoCompleteTextview());
         idsRecyclerview.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
         idsRecyclerview.setAdapter(idsAdapter);
 
-        pricesAdapter = new PriceRecyclerViewAdapter(new Price(12L, "Bungkus"));
+        pricesAdapter = new PriceRecyclerViewAdapter(newProductViewModel.getPrice());
         pricesRecylerview.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
         pricesRecylerview.setAdapter(pricesAdapter);
 

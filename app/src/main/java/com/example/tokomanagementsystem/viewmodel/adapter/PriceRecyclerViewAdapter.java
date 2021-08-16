@@ -3,21 +3,27 @@ package com.example.tokomanagementsystem.viewmodel.adapter;
 import android.annotation.SuppressLint;
 import android.content.res.ColorStateList;
 import android.graphics.Typeface;
+import android.os.Build;
 import android.view.ContextThemeWrapper;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AbsoluteLayout;
 import android.widget.CheckBox;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.RequiresApi;
 import androidx.core.content.res.ResourcesCompat;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.tokomanagementsystem.R;
 import com.example.tokomanagementsystem.model.Price;
+import com.google.android.material.appbar.CollapsingToolbarLayout;
 import com.google.android.material.button.MaterialButton;
 import com.google.android.material.chip.Chip;
 import com.google.android.material.chip.ChipGroup;
@@ -25,6 +31,8 @@ import com.google.android.material.textfield.TextInputEditText;
 import com.google.android.material.textfield.TextInputLayout;
 
 import java.util.ArrayList;
+
+import static android.view.ViewGroup.LayoutParams.WRAP_CONTENT;
 
 public class PriceRecyclerViewAdapter extends RecyclerView.Adapter {
 
@@ -97,22 +105,9 @@ public class PriceRecyclerViewAdapter extends RecyclerView.Adapter {
 
         }
 
-        @SuppressLint("ResourceAsColor")
         public void addUnitChip(String name){
-            Chip chip = new Chip(new ContextThemeWrapper(view.getContext(), R.style.Widget_MaterialComponents_Chip_Choice));
+            Chip chip = (Chip) LayoutInflater.from(view.getContext()).inflate(R.layout.unit_chip_layout, null);
             chip.setText(name);
-            chip.setTextColor(R.color.price_chip_text_selector);
-            chip.setTypeface(ResourcesCompat.getFont(view.getContext(), R.font.poppins_w400_regular));
-            chip.setTextSize(10);
-            chip.setBackgroundColor(R.color.price_chip_background_selector);
-            int colorInt = itemView.getResources().getColor(R.color.price_chip_stroke_selector);
-            ColorStateList colorStateList = ColorStateList.valueOf(colorInt);
-            chip.setChipStrokeColor(colorStateList);
-            chip.setChipStrokeWidth(1);
-            chip.setCheckable(true);
-            chip.setClickable(true);
-            chip.setFocusable(true);
-
             unitChipGroup.addView(chip);
         }
 

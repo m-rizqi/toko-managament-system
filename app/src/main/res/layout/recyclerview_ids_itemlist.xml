@@ -16,7 +16,7 @@
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/ids_inputlayout_1"
-            android:layout_width="200dp"
+            android:layout_width="180dp"
             android:layout_height="wrap_content"
             style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox"
             android:layout_gravity="bottom"
@@ -41,13 +41,14 @@
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/ids_inputlayout_2"
-            android:layout_width="100dp"
+            android:layout_width="120dp"
             android:layout_height="wrap_content"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintLeft_toRightOf="@id/ids_inputlayout_1"
             style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox.ExposedDropdownMenu"
             android:layout_marginLeft="15dp"
             app:boxStrokeColor="@color/blue_light"
+            app:boxBackgroundColor="#ffffff"
             app:endIconTint="@color/blue_dark"
             >
 
@@ -55,12 +56,11 @@
                 android:id="@+id/ids_autocompletetextview_priority"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:background="@color/white"
                 android:fontFamily="@font/poppins_w500_medium"
                 android:paddingTop="10dp"
                 android:paddingBottom="5dp"
-                android:textColor="@color/black"
-                android:textSize="14sp"
+                android:textColor="#000000"
+                android:textSize="12sp"
                 />
 
         </com.google.android.material.textfield.TextInputLayout>

@@ -25,9 +25,10 @@
         app:layout_constraintTop_toBottomOf="@id/price_imagebutton_addboxabove"
         android:orientation="horizontal"
         android:paddingVertical="12dp"
-        android:paddingHorizontal="21dp"
+        android:paddingLeft="21dp"
         android:layout_marginTop="6dp"
-        android:background="#807DB3C6">
+        android:background="#807DB3C6"
+        >
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/price_inputlayout_1"
@@ -69,6 +70,10 @@
             android:layout_gravity="center_vertical"
             android:layout_marginTop="2dp"
             />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"/>
 
     </LinearLayout>
 
@@ -159,21 +164,22 @@
             app:selectionRequired="true"
             >
 
-            <com.google.android.material.chip.Chip
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                style="@style/Widget.MaterialComponents.Chip.Choice"
-                android:text="Bungkus"
-                android:textColor="@color/price_chip_text_selector"
-                android:fontFamily="@font/poppins_w400_regular"
-                android:textSize="10sp"
-                app:chipBackgroundColor="@color/price_chip_background_selector"
-                app:chipStrokeColor="@color/price_chip_stroke_selector"
-                app:chipStrokeWidth="1dp"
-                android:checkable="true"
-                android:clickable="true"
-                android:focusable="true"
-                />
+<!--            <com.google.android.material.chip.Chip-->
+<!--                android:id="@+id/price_chip_unit"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                style="@style/Widget.MaterialComponents.Chip.Choice"-->
+<!--                android:text="Bungkus"-->
+<!--                android:textColor="@color/price_chip_text_selector"-->
+<!--                android:fontFamily="@font/poppins_w400_regular"-->
+<!--                android:textSize="10sp"-->
+<!--                app:chipBackgroundColor="@color/price_chip_background_selector"-->
+<!--                app:chipStrokeColor="@color/price_chip_stroke_selector"-->
+<!--                app:chipStrokeWidth="1dp"-->
+<!--                android:checkable="true"-->
+<!--                android:clickable="true"-->
+<!--                android:focusable="true"-->
+<!--                />-->
 
         </com.google.android.material.chip.ChipGroup>
 
@@ -214,7 +220,7 @@
 
         </com.google.android.material.textfield.TextInputLayout>
 
-        <com.google.android.material.checkbox.MaterialCheckBox
+        <CheckBox
             android:id="@+id/price_checkbox_pedagangvisibility"
             android:layout_width="20dp"
             android:layout_height="20dp"
@@ -304,7 +310,7 @@
 
         </com.google.android.material.textfield.TextInputLayout>
 
-        <com.google.android.material.checkbox.MaterialCheckBox
+        <CheckBox
             android:id="@+id/price_checkbox_konsumenvisibility"
             android:layout_width="20dp"
             android:layout_height="20dp"

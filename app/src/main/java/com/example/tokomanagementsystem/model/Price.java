@@ -6,7 +6,7 @@ public class Price {
     private String unit;
     private Long merchantPrice;
     private Long consumentPrice;
-    private Price previousLinkPrice;
+    private Price nextLinkPrice;
     private int quantityLink;
 
     public Price() {
@@ -49,12 +49,12 @@ public class Price {
         this.consumentPrice = consumentPrice;
     }
 
-    public Price getPreviousLinkPrice() {
-        return previousLinkPrice;
+    public Price getNextLinkPrice() {
+        return nextLinkPrice;
     }
 
-    public void setPreviousLinkPrice(Price previousLinkPrice) {
-        this.previousLinkPrice = previousLinkPrice;
+    public void setNextLinkPrice(Price nextLinkPrice) {
+        this.nextLinkPrice = nextLinkPrice;
     }
 
     public int getQuantityLink() {
