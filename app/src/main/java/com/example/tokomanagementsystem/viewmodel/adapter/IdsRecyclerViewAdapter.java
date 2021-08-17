@@ -3,6 +3,7 @@ package com.example.tokomanagementsystem.viewmodel.adapter;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.ImageButton;
@@ -19,12 +20,12 @@ import com.google.android.material.textfield.TextInputLayout;
 
 import java.util.ArrayList;
 
-public class IdsRecyclerViewAdapter extends RecyclerView.Adapter<IdsRecyclerViewAdapter.IdsViewHoder> {
+public class IdsRecyclerViewAdapter extends RecyclerView.Adapter<IdsRecyclerViewAdapter.IdsViewHolder> {
 
     //vars
     private ArrayList<Id> idsProduct = new ArrayList<>();
     private ArrayList<String> roleAutoCompleteList;
-    private ArrayList<IdsViewHoder> idsViewHoders = new ArrayList<>();
+    private ArrayList<IdsViewHolder> idsViewHolders = new ArrayList<>();
 
     public IdsRecyclerViewAdapter(Id id, ArrayList<String> roleAutoCompleteList) {
         idsProduct.add(id);
@@ -32,14 +33,14 @@ public class IdsRecyclerViewAdapter extends RecyclerView.Adapter<IdsRecyclerView
     }
 
     @Override
-    public IdsViewHoder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        IdsViewHoder idViewHoder = new IdsViewHoder(LayoutInflater.from(parent.getContext()).inflate(R.layout.recyclerview_ids_itemlist, null));
-        idsViewHoders.add(idViewHoder);
+    public IdsViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        IdsViewHolder idViewHoder = new IdsViewHolder(LayoutInflater.from(parent.getContext()).inflate(R.layout.recyclerview_ids_itemlist, null));
+        idsViewHolders.add(idViewHoder);
         return idViewHoder;
     }
 
     @Override
-    public void onBindViewHolder(@NonNull IdsRecyclerViewAdapter.IdsViewHoder holder, int position) {
+    public void onBindViewHolder(@NonNull IdsViewHolder holder, int position) {
         Id id = idsProduct.get(position);
         holder.idEditText.setText(String.valueOf(id.getId()));
         holder.idInputLayout.setEnabled(false);
@@ -55,13 +56,19 @@ public class IdsRecyclerViewAdapter extends RecyclerView.Adapter<IdsRecyclerView
         holder.addIdButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                addId(new Id(999999L, "Default", 3L));
+                addId(new Id(999999L, "Default", idsProduct.get(0).getId()));
             }
         });
         holder.deleteIdButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 deleteId();
+            }
+        });
+        holder.priorityAutoComplete.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int pos, long id) {
+                holder.saveRolePriority(roleAutoCompleteList.get(pos), position);
             }
         });
     }
@@ -81,7 +88,20 @@ public class IdsRecyclerViewAdapter extends RecyclerView.Adapter<IdsRecyclerView
         notifyDataSetChanged();
     }
 
-    class IdsViewHoder extends RecyclerView.ViewHolder {
+    public void saveHolders(){
+        for (int i = 0; i < idsProduct.size(); i++) {
+            Id id = idsProduct.get(i);
+            IdsViewHolder viewHolder = idsViewHolders.get(i);
+            id.setRole(String.valueOf(viewHolder.priorityAutoComplete.getOnItemSelectedListener()));
+        }
+    }
+
+    public ArrayList<Id> getIdsProduct() {
+        saveHolders();
+        return idsProduct;
+    }
+
+    class IdsViewHolder extends RecyclerView.ViewHolder {
 
         //widgets
         View view;
@@ -95,7 +115,7 @@ public class IdsRecyclerViewAdapter extends RecyclerView.Adapter<IdsRecyclerView
         //vars
         ArrayAdapter<String> roleAutoCompeteAdapter;
 
-        public IdsViewHoder(@NonNull View itemView) {
+        public IdsViewHolder(@NonNull View itemView) {
             super(itemView);
 
             //extract widgets
@@ -134,6 +154,11 @@ public class IdsRecyclerViewAdapter extends RecyclerView.Adapter<IdsRecyclerView
             tambahIdTextView.setVisibility(View.GONE);
             deleteIdButton.setVisibility(View.VISIBLE);
             addIdButton.setVisibility(View.VISIBLE);
+        }
+
+        public void saveRolePriority(String role, int position){
+           Id id = idsProduct.get(position);
+           id.setRole(role);
         }
 
     }

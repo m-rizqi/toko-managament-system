@@ -41,7 +41,7 @@
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/ids_inputlayout_2"
-            android:layout_width="120dp"
+            android:layout_width="125dp"
             android:layout_height="wrap_content"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintLeft_toRightOf="@id/ids_inputlayout_1"
@@ -60,7 +60,9 @@
                 android:paddingTop="10dp"
                 android:paddingBottom="5dp"
                 android:textColor="#000000"
+                android:textColorHint="@color/black"
                 android:textSize="12sp"
+                android:text="Default"
                 />
 
         </com.google.android.material.textfield.TextInputLayout>
@@ -109,6 +111,7 @@
             android:layout_toLeftOf="@id/ids_imagebutton_tambahid"
             android:layout_centerVertical="true"
             android:visibility="gone"
+            android:layout_marginRight="8dp"
             />
 
     </RelativeLayout>

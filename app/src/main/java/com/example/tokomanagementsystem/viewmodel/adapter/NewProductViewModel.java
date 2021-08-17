@@ -5,6 +5,7 @@ import android.annotation.SuppressLint;
 import com.example.tokomanagementsystem.model.Id;
 import com.example.tokomanagementsystem.model.Price;
 import com.example.tokomanagementsystem.model.Product;
+import com.example.tokomanagementsystem.model.User;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -14,6 +15,7 @@ public class NewProductViewModel {
     private Product product;
     private Price price;
     private ArrayList<String> roleAutoCompleteTextview;
+    private User user = new User();
 
     @SuppressLint("NewApi")
     public NewProductViewModel(Long firstId){
@@ -21,9 +23,7 @@ public class NewProductViewModel {
         product = new Product(id);
         price = new Price();
         product.setPrices(price);
-        roleAutoCompleteTextview = new ArrayList<>(
-                List.of("Default","Bungkus", "Pack")
-        );
+        roleAutoCompleteTextview = (ArrayList<String>) user.getUnitList();
     }
 
     public Product getProduct() {

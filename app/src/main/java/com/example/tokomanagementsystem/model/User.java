@@ -14,7 +14,11 @@ public class User {
     private List<String> unitList;
     private Long income;
 
+    @SuppressLint("NewApi")
     public User() {
+        this.unitList = new ArrayList<>(
+                List.of("Bungkus", "Pack", "Sachet", "Renteng", "Kg")
+        );
     }
 
     @SuppressLint("NewApi")
