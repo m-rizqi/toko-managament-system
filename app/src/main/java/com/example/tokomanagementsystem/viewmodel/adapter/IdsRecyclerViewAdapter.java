@@ -1,5 +1,6 @@
 package com.example.tokomanagementsystem.viewmodel.adapter;
 
+import android.annotation.SuppressLint;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -39,11 +40,17 @@ public class IdsRecyclerViewAdapter extends RecyclerView.Adapter<IdsRecyclerView
         return idViewHoder;
     }
 
+    @SuppressLint("NewApi")
     @Override
     public void onBindViewHolder(@NonNull IdsViewHolder holder, int position) {
         Id id = idsProduct.get(position);
         holder.idEditText.setText(String.valueOf(id.getId()));
         holder.idInputLayout.setEnabled(false);
+        if (!id.getRole().equalsIgnoreCase("Default")){
+            holder.priorityAutoComplete.setText(id.getRole(), false);
+        }else{
+            holder.priorityAutoComplete.setText("Default", false);
+        }
         if (idsProduct.size() == 1){
             holder.setIdSizeOne();
         }else {

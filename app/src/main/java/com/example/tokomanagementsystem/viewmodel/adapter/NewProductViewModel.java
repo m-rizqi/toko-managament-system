@@ -24,6 +24,7 @@ public class NewProductViewModel {
         price = new Price();
         product.setPrices(price);
         roleAutoCompleteTextview = (ArrayList<String>) user.getUnitList();
+        roleAutoCompleteTextview.add("Default");
     }
 
     public Product getProduct() {
