@@ -34,7 +34,7 @@
                 android:textSize="14sp"
                 android:paddingTop="10dp"
                 android:paddingBottom="5dp"
-                android:inputType="number"
+                android:enabled="false"
                 />
 
         </com.google.android.material.textfield.TextInputLayout>
@@ -64,6 +64,35 @@
                 android:textSize="12sp"
                 android:text="Default"
                 />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/ids_inputlayout_3"
+            android:layout_width="125dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintLeft_toRightOf="@id/ids_inputlayout_1"
+            style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox"
+            android:layout_marginLeft="15dp"
+            app:boxStrokeColor="@color/blue_light"
+            app:boxBackgroundColor="#ffffff"
+            app:endIconTint="@color/blue_dark"
+            android:layout_gravity="bottom"
+            >
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/ids_edittext_priority"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:enabled="false"
+                android:fontFamily="@font/poppins_w500_medium"
+                android:paddingTop="10dp"
+                android:paddingBottom="5dp"
+                android:text="Main"
+                android:textColor="#000000"
+                android:textColorHint="@color/black"
+                android:textSize="12sp" />
 
         </com.google.android.material.textfield.TextInputLayout>
 

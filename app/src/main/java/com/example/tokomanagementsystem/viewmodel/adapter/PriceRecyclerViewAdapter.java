@@ -19,9 +19,11 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
 import androidx.core.content.res.ResourcesCompat;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.tokomanagementsystem.R;
+import com.example.tokomanagementsystem.model.Note;
 import com.example.tokomanagementsystem.model.Price;
 import com.google.android.material.appbar.CollapsingToolbarLayout;
 import com.google.android.material.button.MaterialButton;
@@ -75,6 +77,9 @@ public class PriceRecyclerViewAdapter extends RecyclerView.Adapter {
         CheckBox visibilityMerchantCheckBox, visibilityConsumentCheckbox;
         RecyclerView merchantNoteRecyclerView, consumentNoteRecyclerView;
 
+        //vars
+        NoteRecyclerViewAdapter merchantNoteAdapter, consumentNoteAdapter;
+
         public PriceViewHolder(@NonNull View itemView) {
             super(itemView);
 
@@ -102,6 +107,15 @@ public class PriceRecyclerViewAdapter extends RecyclerView.Adapter {
 
             //widgets configuration
             addUnitChip("Bungkus");
+
+            //vars config
+            merchantNoteRecyclerView.setLayoutManager(new LinearLayoutManager(itemView.getContext()));
+            merchantNoteAdapter = new NoteRecyclerViewAdapter();
+            merchantNoteRecyclerView.setAdapter(merchantNoteAdapter);
+
+            consumentNoteRecyclerView.setLayoutManager(new LinearLayoutManager(itemView.getContext()));
+            consumentNoteAdapter = new NoteRecyclerViewAdapter();
+            consumentNoteRecyclerView.setAdapter(consumentNoteAdapter);
 
         }
 

@@ -268,7 +268,6 @@
             android:id="@+id/price_recylerview_pedagangnote"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            tools:itemCount="1"
             tools:listitem="@layout/recylerview_note_itemlist"
             />
 
@@ -358,7 +357,6 @@
             android:id="@+id/price_recylerview_konsumennote"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            tools:itemCount="1"
             tools:listitem="@layout/recylerview_note_itemlist"
             />
 

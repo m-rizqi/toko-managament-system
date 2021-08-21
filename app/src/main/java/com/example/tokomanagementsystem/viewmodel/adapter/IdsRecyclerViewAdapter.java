@@ -45,11 +45,13 @@ public class IdsRecyclerViewAdapter extends RecyclerView.Adapter<IdsRecyclerView
     public void onBindViewHolder(@NonNull IdsViewHolder holder, int position) {
         Id id = idsProduct.get(position);
         holder.idEditText.setText(String.valueOf(id.getId()));
-        holder.idInputLayout.setEnabled(false);
-        if (!id.getRole().equalsIgnoreCase("Default")){
-            holder.priorityAutoComplete.setText(id.getRole(), false);
-        }else{
-            holder.priorityAutoComplete.setText("Default", false);
+        //configuration
+        if (position == 0){
+            holder.setPriorityFirst();
+            holder.saveRolePriority("Main", position);
+        }else {
+            holder.setPriorityNotFirst();
+            holder.priorityAutoComplete.setText(id.getRole().equalsIgnoreCase("Default") ? "Default" : id.getRole(), false);
         }
         if (idsProduct.size() == 1){
             holder.setIdSizeOne();
@@ -63,6 +65,7 @@ public class IdsRecyclerViewAdapter extends RecyclerView.Adapter<IdsRecyclerView
         holder.addIdButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                //TO DO : SCAN BARCODE
                 addId(new Id(999999L, "Default", idsProduct.get(0).getId()));
             }
         });
@@ -112,8 +115,8 @@ public class IdsRecyclerViewAdapter extends RecyclerView.Adapter<IdsRecyclerView
 
         //widgets
         View view;
-        TextInputLayout idInputLayout, priorityInputLayout;
-        TextInputEditText idEditText;
+        TextInputLayout idInputLayout, priorityInputLayout, priorityDisabledInputLayout;
+        TextInputEditText idEditText, priorityDisabledEditText;
         AutoCompleteTextView priorityAutoComplete;
         RelativeLayout addDeleteIdRelativeLayout;
         ImageButton addIdButton, deleteIdButton;
@@ -135,6 +138,8 @@ public class IdsRecyclerViewAdapter extends RecyclerView.Adapter<IdsRecyclerView
             addIdButton = itemView.findViewById(R.id.ids_imagebutton_tambahid);
             deleteIdButton = itemView.findViewById(R.id.ids_imagebutton_kurangid);
             tambahIdTextView = itemView.findViewById(R.id.ids_textview_tambahid);
+            priorityDisabledInputLayout = itemView.findViewById(R.id.ids_inputlayout_3);
+            priorityDisabledEditText = itemView.findViewById(R.id.ids_edittext_priority);
 
             //vars config
             roleAutoCompeteAdapter = new ArrayAdapter<>(itemView.getContext(),R.layout.drop_down_list_item,roleAutoCompleteList);
@@ -161,6 +166,16 @@ public class IdsRecyclerViewAdapter extends RecyclerView.Adapter<IdsRecyclerView
             tambahIdTextView.setVisibility(View.GONE);
             deleteIdButton.setVisibility(View.VISIBLE);
             addIdButton.setVisibility(View.VISIBLE);
+        }
+
+        public void setPriorityFirst(){
+            priorityInputLayout.setVisibility(View.GONE);
+            priorityDisabledInputLayout.setVisibility(View.VISIBLE);
+        }
+
+        public void setPriorityNotFirst(){
+            priorityInputLayout.setVisibility(View.VISIBLE);
+            priorityDisabledInputLayout.setVisibility(View.GONE);
         }
 
         public void saveRolePriority(String role, int position){
